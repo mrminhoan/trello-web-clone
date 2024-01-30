@@ -1,4 +1,3 @@
-import React from 'react';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import Select from '@mui/material/Select';
@@ -7,6 +6,7 @@ import { useColorScheme } from '@mui/material';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import SettingsBrightnessIcon from '@mui/icons-material/SettingsBrightness';
+import Box from '@mui/material/Box';
 
 function ModeSelect() {
   const { mode, setMode } = useColorScheme();
@@ -16,7 +16,7 @@ function ModeSelect() {
   };
   return (
     <>
-      <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+      <FormControl size="small" sx={{ minWidth: '120px' }}>
         <InputLabel id="label-select-dark-light-mode">Mode</InputLabel>
         <Select
           labelId="label-select-dark-light-mode"
@@ -26,28 +26,22 @@ function ModeSelect() {
           onChange={handleChange}
         >
           <MenuItem value="light">
-            <div
-              style={{ display: 'flex', alignContent: 'center', gap: '8px' }}
-            >
+            <Box sx={{ display: 'flex', alignContent: 'center', gap: 1 }}>
               <LightModeIcon fontSize="small" />
               Light
-            </div>
+            </Box>
           </MenuItem>
           <MenuItem value="dark">
-            <div
-              style={{ display: 'flex', alignContent: 'center', gap: '8px' }}
-            >
+            <Box sx={{ display: 'flex', alignContent: 'center', gap: 1 }}>
               <DarkModeIcon fontSize="small" />
               Dark
-            </div>
+            </Box>
           </MenuItem>
           <MenuItem value="system">
-            <div
-              style={{ display: 'flex', alignContent: 'center', gap: '8px' }}
-            >
+            <Box sx={{ display: 'flex', alignContent: 'center', gap: 1 }}>
               <SettingsBrightnessIcon fontSize="small" />
               System
-            </div>
+            </Box>
           </MenuItem>
         </Select>
       </FormControl>

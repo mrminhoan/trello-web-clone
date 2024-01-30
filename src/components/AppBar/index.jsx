@@ -25,16 +25,19 @@ function AppBar() {
         height: (theme) => theme.trelloCustom.appBarHeight,
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        gap: 2,
+        overflowX: 'auto'
       }}
     >
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
         <AppsIcon sx={{ color: 'primary.main' }} />
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
           <SvgIcon
             sx={{ color: 'primary.main' }}
             component={TrelloLogo}
             inheritViewBox
+            fontSize="small"
           />
           <Typography
             sx={{
@@ -47,12 +50,13 @@ function AppBar() {
             Trello
           </Typography>
         </Box>
-        <Workspaces />
-        <Recent />
-        <Templates />
-        <Starred />
-
-        <Button variant="outlined">Create</Button>
+        <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 1 }}>
+          <Workspaces />
+          <Recent />
+          <Templates />
+          <Starred />
+          <Button variant="outlined">Create</Button>
+        </Box>
       </Box>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
         <TextField
@@ -60,16 +64,25 @@ function AppBar() {
           label="Search..."
           type="search"
           size="small"
+          sx={{ minWidth: '120px' }}
         />
         <ModeSelect />
         <Tooltip title="Notification">
-          <Badge color="secondary" variant="dot" sx={{ cursor: 'pointer' }}>
+          <Badge
+            color="secondary"
+            variant="dot"
+            sx={{ cursor: 'pointer', color: 'primary.main' }}
+          >
             <NotificationsNoneIcon />
           </Badge>
         </Tooltip>
 
         <Tooltip title="Help">
-          <Badge color="secondary" variant="dot" sx={{ cursor: 'pointer' }}>
+          <Badge
+            color="secondary"
+            variant="dot"
+            sx={{ cursor: 'pointer', color: 'primary.main' }}
+          >
             <HelpOutlineIcon />
           </Badge>
         </Tooltip>
